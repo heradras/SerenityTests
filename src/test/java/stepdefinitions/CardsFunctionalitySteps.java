@@ -12,6 +12,7 @@ import net.thucydides.core.annotations.Managed;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import tasks.clickInCard;
+import tasks.clickInMainPageTab;
 import userinterfaces.HomePage;
 import static userinterfaces.MainPage.pageTitle;
 
@@ -46,6 +47,22 @@ public class CardsFunctionalitySteps {
         );
 
 
+    }
+
+    @When("^el usuario hace click en la pestaña (.*) de los elementos desplegados$")
+    public void elUsuarioHaceClickEnLaPestañaDeLosElementosDesplegados(String tabName) {
+        actor.wasAbleTo(
+                clickInMainPageTab.byName(tabName)
+
+        );
+    }
+
+
+    @Then("^ve la pagina con titulo (.*)$")
+    public void veLaPaginaConTituloTextBox(String title) {
+        actor.attemptsTo(
+                Ensure.that(pageTitle).text().isEqualTo(title)
+        );
     }
 
 
