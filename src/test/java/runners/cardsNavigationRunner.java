@@ -8,8 +8,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         //features= "src/test/resources/features/MainPageFunctionality.feature",
-        features= {"src/test/resources/features/MainPageFunctionality.feature",
-                    "src/test/resources/features/TestCardsFunctionality.feature"},
+        features= "src/test/resources/features/TextBoxPage/FullNameTest.feature",
         glue = "stepdefinitions",
         tags = "",
         snippets = SnippetType.CAMELCASE

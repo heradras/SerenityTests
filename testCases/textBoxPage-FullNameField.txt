@@ -1,0 +1,51 @@
+todos los campos correctos
+
+campo Full Name:
+	|-Sin limite de caracteres
+	|-Admite caracteres especiales
+	|-Admite mas de 3 palabras
+	|
+	|-Bugs: La cantidad de caracteres deberia estar limitada
+		Sin limite de caracteres
+		Admite caracteres especiales mas alla de los requeridos
+		Admite espacios en blanco que actuan visualmente como dato vacío
+
+Campo Email:
+	|-Admite infinita cantidad de caracteres
+	|
+	|-Requiere un formato xxx@yyy.zzz
+	|	|
+	|	|-caracteristicas de xxx: 
+	|	|	|-Puede contener solo los caracteres especiales '.', '_' y ,'-'
+	|	|	|-No puede haber mas de un .
+	|	|	|-No puede haber dos - juntos
+	|	|	|-El caracter antes de @ debe no puede ser especial
+	|	|	|-Sin límite de - 
+	|	|
+	|	|-Caracteristicas de yyy: 
+	|	|	|-puede contener solo los caracteres especiales '.', '_' y '-'		
+	|	|	|-Admite infinita cantidad de . no consecutivos
+	|	|
+	|	|-Caracteristicas de zzz:
+	|		|-Debe contener 2 caracteres como minimo y 3 como maximo
+	|		|-Solo admite caracteres alfanumericos (no especiales)
+	|
+	|		
+	|
+	|-Bugs: La cantidad de caracteres deberia estar limitada
+		xxx puede estar compuesto simplemente de '_'
+		yyy puede estar compuesto simplemente de '_'
+		zzz pueden ser numeros
+		
+Campo Current Address:
+	|-Admite infitnita cantidad de caracteres alfanumericos y especiales
+	|
+	|-Bugs: La cantidad de caracteres deberia estar limitada
+
+Campo Permanent Address:
+	|-Admite infitnita cantidad de caracteres alfanumericos y especiales
+	|
+	|-Bugs: La cantidad de caracteres deberia estar limitada
+
+
+

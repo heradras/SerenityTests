@@ -6,7 +6,9 @@ import cucumber.api.java.en.When;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Open;
+import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.thucydides.core.annotations.Managed;
 import org.openqa.selenium.By;
@@ -14,7 +16,13 @@ import org.openqa.selenium.WebDriver;
 import tasks.clickInCard;
 import tasks.clickInMainPageTab;
 import userinterfaces.HomePage;
+
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.containsText;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.hasValue;
+import static net.serenitybdd.screenplay.questions.WebElementQuestion.the;
 import static userinterfaces.MainPage.pageTitle;
+import static userinterfaces.TextBoxPage.*;
 
 
 public class CardsFunctionalitySteps {
@@ -62,6 +70,36 @@ public class CardsFunctionalitySteps {
     public void veLaPaginaConTituloTextBox(String title) {
         actor.attemptsTo(
                 Ensure.that(pageTitle).text().isEqualTo(title)
+        );
+    }
+
+    @Given("^que el usuario esta en la pagina de la pestaña (.*)$")
+    public void queElUsuarioEstaEnLa(String pageName) {
+        queUnNuevoUsuarioAccedeHastaLaWebDemoqa();
+        elHaceClickEnUnaTarjeta("elementsCard");
+        elUsuarioHaceClickEnLaPestañaDeLosElementosDesplegados(pageName);
+
+    }
+
+    @When("^introduce el nombre completo (.*) en el campo FullName$")
+    public void introduceElNombreCompletoEnElCampoFullName(String fullName) {
+        actor.attemptsTo(
+                Enter.theValue(fullName).into(fullNameField)
+        );
+    }
+
+    @When("^hace click en el boton submit$")
+    public void haceClickEnElBotonSubmit() {
+        actor.attemptsTo(
+                Scroll.to(submitButton),
+                Click.on(submitButton)
+        );
+    }
+
+    @Then("^ve (.*) reflejado en la respuesta$")
+    public void veSuNombreReflejadoEnLaRespuesta(String response) {
+        actor.should(
+                seeThat(the(fullNameResponse),containsText(response))
         );
     }
 
